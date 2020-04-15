@@ -1,20 +1,30 @@
 package com.example.demo.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "heroes")
 public class Heroes {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "name")
     private String name;
 
-    public Heroes(int id, String name) {
-        this.id = id;
+    public Heroes() {
+    }
+
+    public Heroes(String name) {
         this.name = name;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -33,5 +43,4 @@ public class Heroes {
                 ", name='" + name + '\'' +
                 '}';
     }
-
 }
