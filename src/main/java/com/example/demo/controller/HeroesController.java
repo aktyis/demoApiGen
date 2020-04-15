@@ -54,6 +54,9 @@ public class HeroesController extends BaseController {
     @RequestMapping(path = "/api/save", method = RequestMethod.POST)
     String addHero(@RequestBody Heroes heroes1) {
         Map parameters = new HashMap();
+        if (heroes1.getId() != null) {
+            parameters.put("id", heroes1.getId());
+        }
         parameters.put("name", heroes1.getName());
 
         return renderOutput(createHeroesActionService, parameters);

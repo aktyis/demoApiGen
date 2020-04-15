@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.common.Tools;
 import groovy.sql.GroovyRowResult;
 import groovy.sql.Sql;
 import org.slf4j.Logger;
@@ -58,8 +59,8 @@ public class BaseService {
     }
 
     private void consolePrint(String query, Object params) {
-        System.out.print("EXECUTING SQL: " + query);
-        if (params != null) System.out.print("PARAMS: " + params);
+        System.out.println("EXECUTING SQL: " + query);
+        if (params != null) System.out.println("PARAMS: " + params);
     }
 
     public void getData(Map map) {

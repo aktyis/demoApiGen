@@ -38,8 +38,9 @@ public class CreateHeroesActionService extends BaseService implements ActionInte
         Heroes heroes = null;
 
         if (previousResult.get("id") != null) {
-            long id = Long.parseLong((String) previousResult.get("id"));
+            long id = Long.parseLong(previousResult.get("id").toString());
             heroes = heroesRepository.findById(id);
+
             previousResult.put("idAvailable", "true");
         } else {
             heroes = new Heroes();
